@@ -21,6 +21,7 @@ data
   |----rec 
         |----train
 	|----test
+</pre>
 
 ## 配置环境
 [PaddleOCR的配置](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.0/doc/doc_ch/whl.md)
