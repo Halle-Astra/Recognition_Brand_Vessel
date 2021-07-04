@@ -6,6 +6,22 @@
 
 Cuda10.0+VS2017 (Ver. 15.9.6)+cuDNN7.5.0+python3.6.7+win10
 
+## 文件夹结构
+<pre>
+yolo\_run.py 
+static\_params.py
+...
+src
+models
+data
+  |----detection
+  |     |----train
+  |	|----test
+  |
+  |----rec 
+        |----train
+	|----test
+
 ## 配置环境
 [PaddleOCR的配置](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.0/doc/doc_ch/whl.md)
 
