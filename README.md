@@ -33,40 +33,40 @@ data
 
 训练代码
 
-python tools/train.py -c configs/det/det_mv3_db.yml -o Global.pretrain_weights=./pretrain_models/MobileNetV3_large_x0_5_pretrained/
+`python tools/train.py -c configs/det/det_mv3_db.yml -o Global.pretrain_weights=./pretrain_models/MobileNetV3_large_x0_5_pretrained/`
 
 断点续训代码
 
-python tools/train.py -c configs/det/det_mv3_db.yml -o Global.checkpoints=output\db_mv3\latest Optimizer.base_lr=0.00001
+`python tools/train.py -c configs/det/det_mv3_db.yml -o Global.checkpoints=output\db_mv3\latest Optimizer.base_lr=0.00001`
 
 评估
 
-python tools/eval.py -c configs/det/det_mv3_db.yml  -o Global.pretrained_model="output/db_mv3/best_accuracy" PostProcess.box_thresh=0.5 PostProcess.unclip_ratio=1.5
+`python tools/eval.py -c configs/det/det_mv3_db.yml  -o Global.pretrained_model="output/db_mv3/best_accuracy" PostProcess.box_thresh=0.5 PostProcess.unclip_ratio=1.5`
 
 测试代码
 
-python tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="D:\Other_All\Application_Documents\Medium\Lessons\ArticleForGraduation\Codes\data\detection\test\2550.jpg" Global.pretrained_model="./output/db_mv3/best_accuracy" Global.load_static_weights=false
+`python tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="D:\Other_All\Application_Documents\Medium\Lessons\ArticleForGraduation\Codes\data\detection\test\2550.jpg" Global.pretrained_model="./output/db_mv3/best_accuracy" Global.load_static_weights=false`
 
 测试所有测试图片
 
-python tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="D:\Other_All\Application_Documents\Medium\Lessons\ArticleForGraduation\Codes\data\detection\train" Global.pretrained_model="./output/db_mv3/best_accuracy" Global.load_static_weights=false
+`python tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="D:\Other_All\Application_Documents\Medium\Lessons\ArticleForGraduation\Codes\data\detection\train" Global.pretrained_model="./output/db_mv3/best_accuracy" Global.load_static_weights=false`
 
 训练识别代码
 
-python -m paddle.distributed.launch   tools/train.py -c configs/rec/rec_icdar15_train.yml
+`python -m paddle.distributed.launch   tools/train.py -c configs/rec/rec_icdar15_train.yml`
 
 识别断点续训
 
- python -m paddle.distributed.launch  tools/train.py -c configs/rec/rec_icdar15_train.yml -o  Global.checkpoints=output\rec\ic15\latest
+`python -m paddle.distributed.launch  tools/train.py -c configs/rec/rec_icdar15_train.yml -o  Global.checkpoints=output\rec\ic15\latest`
 
 3000调多两个0
 
 预测代码
 
-python tools/infer_rec.py -c configs/rec/rec_icdar15_train.yml -o Global.pretrained_model=output/rec/ic15/latest Global.load_static_weights=false Global.infer_img="D:\Other_All\Application_Documents\Medium\Lessons\ArticleForGraduation\Codes\data\rec\test\2639.jpg"
+`python tools/infer_rec.py -c configs/rec/rec_icdar15_train.yml -o Global.pretrained_model=output/rec/ic15/latest Global.load_static_weights=false Global.infer_img="D:\Other_All\Application_Documents\Medium\Lessons\ArticleForGraduation\Codes\data\rec\test\2639.jpg"`
 
-## 创壹通航
-
+## 配置记录
+<pre>
  lscpu 
 Architecture:        x86_64
 CPU op-mode(s):      32-bit, 64-bit
@@ -131,3 +131,4 @@ Tue Apr 13 13:49:19 2021
 | Processes:                                                       GPU Memory |
 |  GPU       PID   Type   Process name                             Usage      |
 |=============================================================================|
+</pre>
